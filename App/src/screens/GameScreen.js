@@ -52,6 +52,13 @@ export default function GameScreen({ route, navigation }) {
   function validateSudo() {
     let newBoard = { board: localBoard };
     dispatch(validateBoard(newBoard));
+    if (status === 'solved') {
+      navigation.replace('Finish', {
+        name: name,
+        level: level,
+        status: status,
+      });
+    }
   }
 
   function solveSudo() {

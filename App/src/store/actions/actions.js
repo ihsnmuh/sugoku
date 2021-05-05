@@ -98,14 +98,7 @@ export const validateBoard = (board) => {
           );
         } else if (data.status === 'unsolved') {
           alert('The input is correct but not finished (unsolved)');
-        } else {
-          alert('Congratulations your validation is correct (solved) !');
-          // navigation.replace('Finish', {
-          //   name: name,
-          //   level: level,
-          //   status: status,
-          // });
-        }
+        } 
       });
   };
 };
