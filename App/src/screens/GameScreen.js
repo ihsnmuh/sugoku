@@ -78,6 +78,14 @@ export default function GameScreen({ route, navigation }) {
     }
   }
 
+  function giveUp() {
+    navigation.replace('Finish', {
+      name: name,
+      level: level,
+      status: status,
+    });
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar style='auto' />
@@ -163,19 +171,6 @@ export default function GameScreen({ route, navigation }) {
           </View>
         </View>
       )}
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-        }}
-      >
-        <TouchableOpacity style={styles.button} onPress={validateSudo}>
-          <Text style={styles.buttonText}>Validate</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={solveSudo}>
-          <Text style={styles.buttonText}>Cheat?</Text>
-        </TouchableOpacity>
-      </View>
       <Text
         style={{
           margin: 10,
@@ -186,12 +181,36 @@ export default function GameScreen({ route, navigation }) {
       >
         Game status: {status}
       </Text>
-      <TouchableOpacity
-        style={styles.buttonSubmit}
-        onPress={(e) => changePage()}
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+        }}
       >
-        <Text style={styles.buttonText}>Submit</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={validateSudo}>
+          <Text style={styles.buttonText}>Validate</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonCheat} onPress={solveSudo}>
+          <Text style={styles.buttonText}>Cheat?</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+        }}
+      >
+        <TouchableOpacity style={styles.buttonGiveUp} onPress={(e) => giveUp()}>
+          <Text style={styles.buttonText}>Give up!</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonSubmit}
+          onPress={(e) => changePage()}
+        >
+          <Text style={styles.buttonText}>Submit</Text>
+        </TouchableOpacity>
+      </View>
       {/* <Text>localBoard {JSON.stringify(localBoard)}</Text>
       <Text>board {JSON.stringify(board)}</Text> */}
     </View>
@@ -228,7 +247,25 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   button: {
-    backgroundColor: '#eabf9f',
+    backgroundColor: '#2978b5',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    width: 150,
+    borderRadius: 5,
+    marginTop: 30,
+    marginHorizontal: 20,
+  },
+  buttonGiveUp: {
+    backgroundColor: '#fb3640',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    width: 150,
+    borderRadius: 5,
+    marginTop: 30,
+    marginHorizontal: 20,
+  },
+  buttonCheat: {
+    backgroundColor: '#ffb037',
     paddingHorizontal: 16,
     paddingVertical: 8,
     width: 150,
@@ -237,7 +274,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   buttonSubmit: {
-    backgroundColor: '#b68973',
+    backgroundColor: '#29bb89',
     paddingHorizontal: 16,
     paddingVertical: 8,
     width: 150,

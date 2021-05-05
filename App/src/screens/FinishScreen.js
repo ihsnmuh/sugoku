@@ -43,7 +43,7 @@ export default function FinishScreen({ route, navigation }) {
             }}
           >
             Congratulations {name}! you have completed SUDOKU with an {level}{' '}
-            difficulty level
+            difficulty.
           </Text>
         </View>
       ) : (
@@ -57,8 +57,15 @@ export default function FinishScreen({ route, navigation }) {
               margin: 20,
             }}
           />
-          <Text style={{ margin: 50, fontSize: 20, fontWeight: 'bold' }}>
-            Sorry {name} you haven't finished !
+          <Text
+            style={{
+              margin: 50,
+              fontSize: 20,
+              fontWeight: 'bold',
+              textAlign: 'center',
+            }}
+          >
+            Sorry {name} you haven't finished in {level} difficulty !
           </Text>
         </View>
       )}
