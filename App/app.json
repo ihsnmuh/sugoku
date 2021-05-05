@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "App-Sugoku-ihsan",
-    "slug": "app-sugoku-ihsan",
+    "name": "sugoku-ihsan",
+    "slug": "sugoku-ihsan",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
